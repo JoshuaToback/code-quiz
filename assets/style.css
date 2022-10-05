@@ -1,0 +1,127 @@
+/* Global Declarations  */
+:root {
+    --MatrixGreen: greenyellow;
+    --DarkMatrix: rgba(0, 255, 60, 0.2);
+    --wrongAnwer: red;
+    --rightAnswer: lightblue;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    /* debugging  */
+    /* border: 1px solid red; */
+
+    /* Default Font  */
+    font-family: monospace;
+    color: white;
+}
+
+body { 
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-size: 1.3em;
+}
+
+button {
+    outline: none;
+    background-color: var(--DarkMatrix);
+    border-radius: 30px;
+    font-size: 20px;
+}
+
+h1, h2 {
+    color: var(--MatrixGreen);
+    margin-bottom: 10px;
+
+
+}
+
+li {
+    list-style: none;
+}
+
+
+/* Outer Container Section */
+.outer-container {
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Top Bar Container  */
+
+.top-bar p {
+    float: right;
+}
+
+/* Inner Container Section */
+.inner-container {
+    height: 100%;
+    background-color: var(--DarkMatrix);
+    width: 50%;
+    margin: 0 auto;
+}
+
+/* Header/Quiz Intro Section */
+.quiz-intro, main {
+   display: block;
+    text-align: center;
+    margin-top: 30vh;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.quiz-intro button {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    background-color: rgb(0, 255, 60, 0.6);
+}
+
+/* Main Quiz Content  */
+
+main {
+    display: block;
+}
+
+
+/* Question Screen */
+.question-screen {
+    display: none; 
+}
+
+
+/* Quiz Finish Content  */
+
+.quiz-finish {
+    display: none;
+}
+
+
+/* High Scores Screen */
+
+.highscores-screen {
+    display: none;
+}
+
+.highscores-screen ol {
+    max-height: 200px;
+    margin-bottom: 5vh;
+}
+
+.highscores-screen ol:hover {
+    overflow-y: scroll;
+}

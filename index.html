@@ -4,7 +4,7 @@
     <head>
         <title>Code Quiz</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/assets/style.css"> 
+        <link rel="stylesheet" href="./assets/style.css"> 
     </head>
     <body>
         <!-- main outer div -->
@@ -17,19 +17,54 @@
             </div>
 
             <!-- Inner Div -->
-            <div>
+            <div class="inner-container">
 
                 <!-- Main Header / Quiz Intro -->
                 <header class="quiz-intro">
-
+                    <h1>Are You Up To Code?</h1>
+                    <h2>This Quiz Will Find Out!</h2>
+                    <p> Click below to get started!</p>
+                    <button id="start-btn" class="start-btn btn">Start Quiz</button>
+                    <button id="next-btn" class="next-btn btn hide"></button>
                 </header>
 
                 <!-- Main Quiz Content -->
                 <main>
+                    <section class="question-screen">
+                        <div id="question-container" class="hide">
+                            <h2 id="question">Question 1</h2> 
+                            <ul id="answer-buttons" class="btn-grid">
+                                <button class="btn">Answer 1</button>
+                                <button class="btn">Answer 2</button>
+                                <button class="btn">Answer 3</button>
+                                <button class="btn">Answer 4</button>
+                            </ul> 
+                        </div>
+                    </section>
 
+                    <section class="quiz-finish">
+                        <h2>Nice! Let's See How You Did!</h2>
+                        <p>Your Score: 00</p>
+                        <div>
+                            <label for="">Enter Initials</label>
+                            <input type="text">
+                            <button>Submit</button>
+                        </div>
+                    </section>
+
+                    <section class="highscores-screen">
+                        <h2>High Scores</h2>
+                        <ol>
+                            <li>WY 20</li>
+                            <li>JT 21</li>
+                            <li>DD 22</li>
+                        </ol>
+                        <button>Return</button>
+                        <button>Clear Scores</button>
+                    </section>
                 </main>
-
             </div>
         </div>
+        <script src="./assets/script.js"></script>
     </body>
 </html>
