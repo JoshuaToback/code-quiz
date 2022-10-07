@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+    <head>
+        <title>Code Quiz</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./assets/style.css"> 
+    </head>
+    <body>
+        <!-- main outer div -->
+        <div class="outer-container">
+
+            <!-- top bar section -->
+            <div class="top-bar">
+                <button><a href="highscores.html">View High Scores</a></button>
+                <p>Timer 00:00</p>
+            </div>
+
+            <!-- Inner Div -->
+            <div class="inner-container">
+
+                <!-- Main Header / Quiz Intro -->
+                <header class="quiz-intro">
+                    <h1>Are You Up To Code?</h1>
+                    <h2>This Quiz Will Find Out!</h2>
+                    <p> Click below to get started!</p>
+                    <button id="start-btn" class="start-btn btn">Start Quiz</button>
+                </header>
+
+                <!-- Main Quiz Content -->
+                <main>
+                    <section class="question-screen">
+                        <div id="question-container" class="hide">
+                            <h2 id="question"></h2>
+                            <ul id="answer-buttons" class="btn-grid">
+                                <button class="btn">Answer 1</button>
+                                <button class="btn">Answer 2</button>
+                                <button class="btn">Answer 3</button>
+                                <button class="btn">Answer 4</button>
+                            </ul> 
+                        </div>
+                    </section>
+
+                    <section class="quiz-finish">
+                        <h2>Nice! Let's See How You Did!</h2>
+                        <p>Your Score: 00</p>
+                        <div>
+                            <label for="">Enter Initials</label>
+                            <input type="text">
+                            <button>Submit</button>
+                        </div>
+                    </section>
+
+                    <section class="highscores-screen">
+                        <h2>High Scores</h2>
+                        <ol>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ol>
+                        <button>Return</button>
+                        <button>Clear Scores</button>
+                    </section>
+                </main>
+            </div>
+        </div>
+        <script src="./assets/questions.js"></script>
+        <script src="./assets/logic.js"></script>
+        <srcipt src="./assets/logicDev.js"></srcipt>
+    </body>
+</html>
