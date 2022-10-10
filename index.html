@@ -12,48 +12,32 @@
 
             <!-- top bar section -->
             <div class="top-bar">
-<<<<<<< HEAD
                 <button><a href="highscores.html">View High Scores</a></button>
-=======
-                <button>View High Scores</button>
->>>>>>> 647f20d33b5cf221274bd34bcf3e48891161b454
-                <p>Timer 00:00</p>
+                <div id="time"></div>
             </div>
 
             <!-- Inner Div -->
             <div class="inner-container">
 
                 <!-- Main Header / Quiz Intro -->
-                <header class="quiz-intro">
+                <section id="intro-screen" class="start">
+                <header>
                     <h1>Are You Up To Code?</h1>
                     <h2>This Quiz Will Find Out!</h2>
                     <p> Click below to get started!</p>
-                    <button id="start-btn" class="start-btn btn">Start Quiz</button>
-<<<<<<< HEAD
-=======
-                    <button id="next-btn" class="next-btn btn hide"></button>
->>>>>>> 647f20d33b5cf221274bd34bcf3e48891161b454
+                    <button id="start">Start Quiz</button>
                 </header>
+                </section>
 
                 <!-- Main Quiz Content -->
                 <main>
-                    <section class="question-screen">
-                        <div id="question-container" class="hide">
-<<<<<<< HEAD
-                            <h2 id="question"></h2>
-=======
-                            <h2 id="question">Question 1</h2> 
->>>>>>> 647f20d33b5cf221274bd34bcf3e48891161b454
-                            <ul id="answer-buttons" class="btn-grid">
-                                <button class="btn">Answer 1</button>
-                                <button class="btn">Answer 2</button>
-                                <button class="btn">Answer 3</button>
-                                <button class="btn">Answer 4</button>
-                            </ul> 
+                    <section id="question-screen" class="hide">
+                        <div id="question-container">
+                            <h2 id="question-title"></h2>
                         </div>
                     </section>
 
-                    <section class="quiz-finish">
+                    <section id="quiz-finish" class="hide">
                         <h2>Nice! Let's See How You Did!</h2>
                         <p>Your Score: 00</p>
                         <div>
@@ -66,15 +50,9 @@
                     <section class="highscores-screen">
                         <h2>High Scores</h2>
                         <ol>
-<<<<<<< HEAD
                             <li></li>
                             <li></li>
                             <li></li>
-=======
-                            <li>WY 20</li>
-                            <li>JT 21</li>
-                            <li>DD 22</li>
->>>>>>> 647f20d33b5cf221274bd34bcf3e48891161b454
                         </ol>
                         <button>Return</button>
                         <button>Clear Scores</button>
@@ -82,12 +60,7 @@
                 </main>
             </div>
         </div>
-<<<<<<< HEAD
         <script src="./assets/questions.js"></script>
-        <script src="./assets/logic.js"></script>
-        <srcipt src="./assets/logicDev.js"></srcipt>
-=======
-        <script src="./assets/script.js"></script>
->>>>>>> 647f20d33b5cf221274bd34bcf3e48891161b454
+        <script src="./assets/logicDev.js"></script>
     </body>
 </html>
