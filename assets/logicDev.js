@@ -1,7 +1,8 @@
 // variables to keep track of quiz state
 var currentQuestionIndex = 0;
-var time = questions.length * 15;
-var timerId;
+var timeLeft = questions.length * 15;
+var score = 0;
+var timerId; 
 
 // variables to reference DOM elements
 var questionsEl = document.getElementById('questions');
@@ -23,48 +24,48 @@ function startQuiz() {
     // un-hide questions section
     var showQ = document.getElementById('question-screen');
     showQ.style.display = 'block';
-    //start timer (high)
-
-    //show starting time (high)
 
     getQuestion();
-}
+    //start timer (high)
 
+    timerId = setInterval(countdown, 1000);
+    var storedTime = document.getElementById('time');
+    function countdown() {
+        if (timeLeft <= 0) {
+            clearTimeout(timerId);
+            quizEnd();
+            } else {
+                storedTime.innerHTML = timeLeft;
+                timeLeft--;
+            }
+        };
+    }
+
+        
 function getQuestion() { //this function is going to get the data from the questions array
     // get current question object from array
-    var currentQuestion = questions[currentQuestionIndex]
+    var currentQuestion = questions[currentQuestionIndex];
 
-
-
-    // var userChoice = event.target.textContent
-    // if (userChoice !== currentQuestion.answer) {
-    //     time -= 10;
+    // var currentAnswer = currentQuestion.answer;
+    // var userChoice = event.target.textContent;
+    // if (userChoice !== currentAnswer) {
+    //     timeLeft -= 10;
     // }
 
-    // currentQuestionIndex++
+    currentQuestionIndex++;
 
-
-    // update title with current question
     var titleEl = document.getElementById('question-title');
     titleEl.textContent = currentQuestion.title;
 
-
-    // clear out any old question choices
     var answerContainer = document.createElement('ul');
     answerContainer.setAttribute('id', 'answer-buttons');
     document.getElementById('question-container').appendChild(answerContainer);
-    // create a for loop that creates the choice elements
     for (var i = 0; i < currentQuestion.choices.length; i++) {
         var answerBtn = document.createElement('button');
         answerBtn.textContent = currentQuestion.choices[i];
         answerBtn.setAttribute('id', currentQuestion.choices[i]);
-        // create new button for each choice
-        //.createElement
         answerBtn.setAttribute('class', 'answers');
-        //.setAttribute (set a class="choice")
-        //.textContent
         answerContainer.appendChild(answerBtn);
-        //.appendChild
     }
     answerContainer.addEventListener('click', questionClick)
 }
@@ -79,21 +80,6 @@ function questionClick(event) {
     //     return;
     // }
 
-    // check if user guessed right or wrong
-    if (chosenAnswer !== correctAnswer) { //replace true with a conditional statement that checks if the clicked choice button's value is the same as the questions[currentQuestionIndex]'s answer
-        //incorrect answer scenario
-
-        // penalize time
-        // display new time on page
-    } else {
-        //correct scenario
-
-        // move to next question
-    }
-    // flash right/wrong feedback on page
-
-    // move to next question
-    currentQuestionIndex++;
 
     // check if we've run out of questions
     if (time <= 0 || currentQuestionIndex === questions.length) {
@@ -106,29 +92,17 @@ function questionClick(event) {
 
 function quizEnd() {
     // stop timer
-    // clearInterval(timerId);
-
+    clearInterval(timerId);
+    var showQ = document.getElementById("question-screen");
+    showQ.style.display = "none"
+    timerEl.style.display = "none"
     // show end screen
-    var quizFinishEl = document.getElementById('quiz-finish');
-    var hide = document.getElementById('question-screen');
-    hide.style.display = 'none';
+    var endScreenEl = document.getElementById('quiz-finish');
+    endScreenEl.removeAttribute('class');
 
-    // un-hide questions section
-    quizFinishEl.style.display = 'block';
-    // // show final score
-    // var finalScoreEl = document.getElementById('final-score');
-    // finalScoreEl.textContent = time;
-}
-
-function clockTick() {
-    // update time
-    time--;
-    timerEl.textContent = time;
-
-    // check if user ran out of time
-    if (time <= 0) {
-        quizEnd();
-    }
+    // show final score
+    var finalScoreEl = document.getElementById('final-score');
+    finalScoreEl.textContent = timeLeft;
 }
 
 

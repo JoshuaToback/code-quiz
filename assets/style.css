@@ -124,6 +124,10 @@ main {
     display: none;
 }
 
+input {
+    color: black;
+}
+
 
 /* High Scores Screen */
 

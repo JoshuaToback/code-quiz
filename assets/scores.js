@@ -19,7 +19,8 @@ function printHighscores() {
   }
   
   function clearHighscores() {
-    window.localStorage.removeItem('highscores');
+    document.querySelector('ol').innerHTML = ''; 
+    window.localStorage.clear('');
     window.location.reload();
   }
   

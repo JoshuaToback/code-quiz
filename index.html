@@ -13,7 +13,7 @@
             <!-- top bar section -->
             <div class="top-bar">
                 <button><a href="highscores.html">View High Scores</a></button>
-                <div id="time"></div>
+                <p id="time"></p>
             </div>
 
             <!-- Inner Div -->
@@ -41,21 +41,17 @@
                         <h2>Nice! Let's See How You Did!</h2>
                         <p>Your Score: 00</p>
                         <div>
-                            <label for="">Enter Initials</label>
-                            <input type="text">
-                            <button>Submit</button>
+                            <label>Enter Name</label>
+                            <input type="text" id="initials" name="initials" value="">
+                            <button id="submitScore">Submit</button>
                         </div>
                     </section>
 
                     <section class="highscores-screen">
-                        <h2>High Scores</h2>
-                        <ol>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ol>
-                        <button>Return</button>
-                        <button>Clear Scores</button>
+                        <h1>High Scores</h1>
+                        <ol></ol>
+                        <button id="returnBtn">Return</button>
+                        <button id="clearScores">Clear Scores</button>
                     </section>
                 </main>
             </div>
