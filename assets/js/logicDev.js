@@ -16,6 +16,7 @@ var feedbackEl = document.getElementById('feedback');
 
 
 function startQuiz() {
+    console.log('Good job!')
     // hide start screen
     var introScreenEl = document.getElementById('intro-screen');
     introScreenEl.style.display = 'none';

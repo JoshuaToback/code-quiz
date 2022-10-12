@@ -11,6 +11,8 @@
     padding: 0;
     box-sizing: border-box;
     
+    /* debugging  */
+    /* border: 1px solid red; */
 
     /* Default Font  */
     font-family: monospace;
@@ -37,6 +39,7 @@ button {
 
 button:hover {
     color: var(--MatrixGreen);
+    background-color: rgb(0, 59, 10);
 }
 
 h1, h2 {
@@ -116,7 +119,8 @@ main {
 
 .answers {
     padding: 20px;
-    display: block; 
+    display: block;
+    margin-bottom: 20px; 
 }
 
 
@@ -149,6 +153,10 @@ input {
 #highscores li {
     color: white;
     font-size: 30px;
+}
+
+#highscores li:hover {
+    color: var(--MatrixGreen);
 }
 
 /* Add Highscores to Display  */
