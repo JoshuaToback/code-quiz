@@ -37,6 +37,10 @@ button {
     font-size: 20px;
 }
 
+button:hover {
+    color: var(--MatrixGreen);
+}
+
 h1, h2 {
     color: var(--MatrixGreen);
     margin-bottom: 10px;
@@ -144,6 +148,9 @@ input {
     overflow-y: scroll;
 }
 
-
+#highscores li {
+    color: white;
+    font-size: 30px;
+}
 
 /* Add Highscores to Display  */

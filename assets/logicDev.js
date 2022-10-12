@@ -8,7 +8,7 @@ var timerId;
 var questionsEl = document.getElementById('questions');
 var timerEl = document.getElementById('time');
 var choicesEl = document.getElementById('choices');
-var submitBtn = document.getElementById('submit');
+var submitBtn = document.getElementById('submitScore');
 var startBtn = document.getElementById('start');
 var initialsEl = document.getElementById('initials');
 var feedbackEl = document.getElementById('feedback');
@@ -18,16 +18,16 @@ var feedbackEl = document.getElementById('feedback');
 function startQuiz() {
     console.log('Good job!')
     // hide start screen
-    var hide = document.getElementById('intro-screen');
-    hide.style.display = 'none';
+    var introScreenEl = document.getElementById('intro-screen');
+    introScreenEl.style.display = 'none';
 
     // un-hide questions section
     var showQ = document.getElementById('question-screen');
     showQ.style.display = 'block';
 
-    getQuestion();
-    //start timer (high)
+    
 
+    //start timer (high)
     timerId = setInterval(countdown, 1000);
     var storedTime = document.getElementById('time');
     function countdown() {
@@ -35,24 +35,18 @@ function startQuiz() {
             clearTimeout(timerId);
             quizEnd();
             } else {
-                storedTime.innerHTML = timeLeft;
+                storedTime.innerHTML = `${timeLeft} sec`;
                 timeLeft--;
             }
         };
+    
+    getQuestion();
     }
 
         
 function getQuestion() { //this function is going to get the data from the questions array
     // get current question object from array
     var currentQuestion = questions[currentQuestionIndex];
-
-    // var currentAnswer = currentQuestion.answer;
-    // var userChoice = event.target.textContent;
-    // if (userChoice !== currentAnswer) {
-    //     timeLeft -= 10;
-    // }
-
-    currentQuestionIndex++;
 
     var titleEl = document.getElementById('question-title');
     titleEl.textContent = currentQuestion.title;
@@ -71,15 +65,17 @@ function getQuestion() { //this function is going to get the data from the quest
 }
 
 function questionClick(event) {
-    var chosenAnswer = event.target.id;
+    var chosenAnswer = event.target.textContent;
     var correctAnswer = questions[currentQuestionIndex].answer;
     console.log(correctAnswer);
     console.log(chosenAnswer);
-    // if the clicked element is not a choice button, do nothing.
-    // if (!buttonEl.matches('.choice')) {
-    //     return;
-    // }
 
+    // if the clicked element is not a choice button, do nothing.
+    if (chosenAnswer !== correctAnswer) {
+        timeLeft -= 10;
+    }
+    
+    currentQuestionIndex++;
 
     // check if we've run out of questions
     if (time <= 0 || currentQuestionIndex === questions.length) {
@@ -109,21 +105,20 @@ function quizEnd() {
 function saveHighscore() {
     // get value of input box
     var initials = initialsEl.value.trim();
-
     // make sure value wasn't empty
     if (initials !== '') {
 
-        //JSON.parse
-        // get saved scores from localstorage (highscores), or if not any, set to empty array
-        
+        var highScores = JSON.parse(window.localStorage.getItem('highscores')) || [];
 
-        // format new score object for current user
-        
+        var newScore = {
+            score: timeLeft, 
+            initials
+        };
 
-        // save to localstorage
+        highScores.push(newScore);
+        window.localStorage.setItem('highscores', JSON.stringify(highScores));
         
-
-        // redirect to next page
+        // Redirects to Score Page 
         window.location.href = 'highscores.html';
     }
 }
@@ -136,12 +131,8 @@ function checkForEnter(event) {
 }
 
 // user clicks button to submit initials
-// submitBtn.onclick = saveHighscore;
-
+submitBtn.onclick = saveHighscore; 
 // user clicks button to start quiz
 startBtn.addEventListener('click', startQuiz);
 
-// user clicks on element containing choices
-// choicesEl.onclick = questionClick;
-
-// initialsEl.onkeyup = checkForEnter;
+initialsEl.onkeyup = checkForEnter;
